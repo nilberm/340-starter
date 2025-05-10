@@ -3,4 +3,216 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+div,
+span,
+a,
+button,
+li,
+ul,
+ol {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-image: url("/images/site/checkerboard.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  #wrapper {
+    background-color: white;
+    max-width: 900px;
+    width: 100%;
+    border: 4px solid #00ccff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ------------------ HEADER --------------------------- */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+#top-header .siteName a {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #333;
+}
+
+#top-header #tools a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease-in;
+}
+
+#top-header #tools a:hover {
+  background: #333;
+  border-radius: 3rem;
+  color: #fff;
+}
+
+/* ------------------ NAVIGATION --------------------------- */
+
+nav ul {
+  display: flex;
+  background: #333;
+}
+
+nav ul li {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 400;
+  padding: 1rem 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul li:hover {
+  background: #555;
+}
+
+/* ------------------ MAIN CONTENT --------------------------- */
+
+main {
+  padding: 1rem;
+}
+
+.delorean-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.cardHero {
+  background: #ffffff80;
+  position: absolute;
+  color: #0082ca;
+}
+
+.cardHero h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cardHero ul li {
+  font-weight: 500;
+}
+
+.cardHero img {
+  width: 6rem;
+}
+
+.delorean-hero picture,
+.delorean-hero picture img {
+  width: 100%;
+}
+
+/* ------------------ FEATURES SECTION --------------------------- */
+
+.features {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.upgrades,
+.reviews {
+  flex: 1;
+  min-width: 280px;
+}
+
+.upgrades h3,
+.reviews h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.upgrade-grid figure {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.upgrade-grid .imgCard {
+  background: #0082ca;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.upgrade-grid img {
+  width: fit-content;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-grid figcaption a {
+  color: #0000ee;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.reviews ul {
+  padding-left: 1rem;
+  font-size: 0.95rem;
+}
+
+.reviews li {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------ FOOTER --------------------------- */
+
+footer {
+  text-align: start;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+footer .copyright {
+  color: #333;
 }
