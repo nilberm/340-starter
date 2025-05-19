@@ -1,9 +1,47 @@
-INSERT INTO classification (classification_name)
-VALUES ('Crossover');
+-- 1. Insert a new record into the account table (Tony Stark)
+INSERT INTO public.account (
+  account_firstname,
+  account_lastname,
+  account_email,
+  account_password
+)
+VALUES (
+  'Tony',
+  'Stark',
+  'tony@starkent.com',
+  'Iam1ronM@n'
+);
 
-SELECT * FROM classification WHERE classification_id = 1;
-SELECT * FROM inventory WHERE inv_id = 1;
+-- 2. Update Tony Stark's account_type to 'Admin'
+UPDATE public.account
+SET account_type = 'Admin'
+WHERE account_email = 'tony@starkent.com';
 
-UPDATE classification SET classification_name = 'Luxury' WHERE classification_id = 1;
+-- 3. Delete Tony Stark's account
+DELETE FROM public.account
+WHERE account_email = 'tony@starkent.com';
 
-DELETE FROM classification WHERE classification_id = 5;
+-- 4. Update GM Hummer description: "small interiors" -> "a huge interior"
+UPDATE public.inventory
+SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
+WHERE inv_make = 'GM' AND inv_model = 'Hummer';
+
+-- 5. Inner join to get make, model and classification name for 'Sport'
+SELECT 
+  i.inv_make,
+  i.inv_model,
+  c.classification_name
+FROM 
+  public.inventory i
+INNER JOIN 
+  public.classification c 
+ON 
+  i.classification_id = c.classification_id
+WHERE 
+  c.classification_name = 'Sport';
+
+-- 6. Update image paths to include '/vehicles'
+UPDATE public.inventory
+SET 
+  inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
+  inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
