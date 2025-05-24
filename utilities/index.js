@@ -77,4 +77,30 @@ Util.buildClassificationGrid = async function (data) {
   return grid;
 };
 
+/* **************************************
+ * Build the vehicle detail HTML
+ * ************************************ */
+Util.buildInventoryDetail = function (data) {
+  let detail = `
+  <section class="vehicle-detail">
+    <div class="vehicle-img">
+      <img src="${data.inv_image}" alt="Image of ${data.inv_make} ${
+    data.inv_model
+  }">
+    </div>
+    <div class="vehicle-info">
+      <h2>${data.inv_make} ${data.inv_model}</h2>
+      <p><strong>Price:</strong> $${Number(data.inv_price).toLocaleString(
+        "en-US"
+      )}</p>
+      <p><strong>Mileage:</strong> ${Number(data.inv_miles).toLocaleString(
+        "en-US"
+      )} miles</p>
+      <p><strong>Color:</strong> ${data.inv_color}</p>
+      <p><strong>Description:</strong> ${data.inv_description}</p>
+    </div>
+  </section>`;
+  return detail;
+};
+
 module.exports = Util;

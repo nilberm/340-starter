@@ -63,3 +63,49 @@ UPDATE public.inventory
 SET 
   inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
   inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
+
+
+INSERT INTO public.inventory (
+  inv_make, inv_model, inv_year, inv_description,
+  inv_image, inv_thumbnail, inv_price, inv_miles,
+  inv_color, classification_id
+) VALUES
+('Lamborghini', 'Aventador', '2021', 'A powerful luxury supercar.', 
+ '/images/vehicles/aventador.jpg', '/images/vehicles/aventador-tn.jpg',
+ 450000, 800, 'Yellow', 1),
+
+('Chevrolet', 'Camaro', '2020', 'High-performance muscle car.', 
+ '/images/vehicles/camaro.jpg', '/images/vehicles/camaro-tn.jpg',
+ 38000, 12000, 'Red', 2),
+
+('Ford', 'Escalade', '2022', 'Spacious SUV ideal for families.',
+ '/images/vehicles/escalade.jpg', '/images/vehicles/escalade-tn.jpg',
+ 62000, 6000, 'Black', 3),
+
+('GMC', 'Hummer', '2023', 'Electric truck with off-road power.',
+ '/images/vehicles/hummer.jpg', '/images/vehicles/hummer-tn.jpg',
+ 97000, 250, 'Green', 4),
+
+('Toyota', 'Model-T', '1927', 'A historic car for collectors.',
+ '/images/vehicles/model-t.jpg', '/images/vehicles/model-t-tn.jpg',
+ 15000, 90000, 'Brown', 5),
+
+('DC', 'Batmobile', '2022', 'Crime-fighting technology on wheels.',
+ '/images/vehicles/batmobile.jpg', '/images/vehicles/batmobile-tn.jpg',
+ 999999, 100, 'Black', 1),
+
+('DeLorean', 'DMC-12', '1985', 'Time-travel capable if flux capacitor is installed.',
+ '/images/vehicles/delorean.jpg', '/images/vehicles/delorean-tn.jpg',
+ 85000, 88000, 'Silver', 2),
+
+('Doggo', 'Dog-Car', '2021', 'The perfect car for pet lovers.',
+ '/images/vehicles/dog-car.jpg', '/images/vehicles/dog-car-tn.jpg',
+ 24000, 20000, 'White', 3),
+
+('Ford', 'Fire-Truck', '2018', 'A reliable truck for emergencies.',
+ '/images/vehicles/fire-truck.jpg', '/images/vehicles/fire-truck-tn.jpg',
+ 70000, 5000, 'Red', 4),
+
+('Jeep', 'Wrangler', '2023', 'Off-road vehicle built for adventure.',
+ '/images/vehicles/wrangler.jpg', '/images/vehicles/wrangler-tn.jpg',
+ 46000, 1200, 'Blue', 5);

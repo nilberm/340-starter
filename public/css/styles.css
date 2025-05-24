@@ -81,12 +81,17 @@ ol {
 
 nav ul {
   display: flex;
-  background: #333;
 }
 
 nav ul li {
+  width: 100%;
+}
+
+nav ul li a {
   cursor: pointer;
   color: #fff;
+  background: #333;
+  width: 100%;
   font-weight: 400;
   padding: 1rem 0;
   width: 100%;
@@ -95,7 +100,7 @@ nav ul li {
   justify-content: center;
 }
 
-nav ul li:hover {
+nav ul li a:hover {
   background: #555;
 }
 
@@ -215,4 +220,142 @@ footer {
 
 footer .copyright {
   color: #333;
+}
+
+/* -------------- INVENTORY VIEW ----------------------- */
+
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+#inv-display li {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f9f9f9;
+  padding: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+#inv-display li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#inv-display img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#inv-display .namePrice {
+  text-align: center;
+}
+
+#inv-display .namePrice h2 {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+#inv-display .namePrice span {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #0082ca;
+}
+
+/* -------------- VEHICLE DETAIL  ----------------------- */
+
+.vehicle-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vehicle-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vehicle-info h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #222;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.vehicle-info p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.vehicle-info strong {
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .vehicle-detail {
+    flex-direction: row;
+  }
+
+  .vehicle-img,
+  .vehicle-info {
+    flex: 1;
+  }
+}
+
+/* ---------------- ERROR VIEW --------------------- */
+
+.error-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+}
+
+.error-container {
+  max-width: 600px;
+  background: #fff0f0;
+  padding: 2rem;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+  text-align: center;
+}
+
+.error-container h1 {
+  color: #d8000c;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.error-home-link {
+  font-weight: bold;
+  color: #0082ca;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.error-home-link:hover {
+  text-decoration: underline;
 }
