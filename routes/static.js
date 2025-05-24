@@ -1,5 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const baseController = require("../controllers/baseController");
 
 // Static Routes
 // Set up "public" folder / subfolders for static files
@@ -10,6 +11,3 @@ router.use("/images", express.static(__dirname + "public/images"));
 router.get("/error-test", baseController.throwError);
 
 module.exports = router;
-
-
-
