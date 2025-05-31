@@ -1,0 +1,26 @@
+<div class="add-classification-form">
+  <h1>Add New Classification</h1>
+
+  <% if (messages && messages.notice) { %>
+  <div class="notice"><%= messages.notice %></div>
+  <% } %> <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+  <form action="/inv/add-classification" method="post">
+    <label for="classification_name">Classification Name</label>
+    <span>Only letters and numbers. No spaces or special characters.</span>
+    <input
+      type="text"
+      id="classification_name"
+      name="classification_name"
+      pattern="^[A-Za-z0-9]+$"
+      required
+    />
+    <button type="submit">Add Classification</button>
+  </form>
+</div>

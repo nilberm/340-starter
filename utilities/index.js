@@ -82,6 +82,7 @@ Util.buildClassificationGrid = async function (data) {
  * ************************************ */
 Util.buildInventoryDetail = function (data) {
   let detail = `
+  <h1>Vehicle Detail</h1>
   <section class="vehicle-detail">
     <div class="vehicle-img">
       <img src="${data.inv_image}" alt="Image of ${data.inv_make} ${
@@ -104,12 +105,28 @@ Util.buildInventoryDetail = function (data) {
 };
 
 /* ****************************************
-* Middleware to handle async errors
-* *************************************** */
+ * Middleware to handle async errors
+ * *************************************** */
 Util.handleErrors = function (fn) {
   return function (req, res, next) {
-    return Promise.resolve(fn(req, res, next)).catch(next)
-  }
-}
+    return Promise.resolve(fn(req, res, next)).catch(next);
+  };
+};
+
+Util.buildClassificationList = async function (classification_id = null) {
+  let data = await invModel.getClassifications();
+  let classificationList =
+    '<select name="classification_id" id="classificationList" required>';
+  classificationList += "<option value=''>Choose a Classification</option>";
+  data.rows.forEach((row) => {
+    classificationList += `<option value="${row.classification_id}"`;
+    if (classification_id && row.classification_id == classification_id) {
+      classificationList += " selected";
+    }
+    classificationList += `>${row.classification_name}</option>`;
+  });
+  classificationList += "</select>";
+  return classificationList;
+};
 
 module.exports = Util;

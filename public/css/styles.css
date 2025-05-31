@@ -478,3 +478,116 @@ input:focus:invalid {
 input:required:valid {
   border: 2px solid green;
 }
+
+.management-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.management-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.management-container a {
+  display: inline-block;
+  margin: 0.5rem 0;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.management-container a:hover {
+  text-decoration: underline;
+}
+
+.add-classification-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.add-classification-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-classification-form h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.add-classification-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.add-classification-form input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.add-classification-form button {
+  padding: 0.5rem 1rem;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-classification-form form span {
+  padding-bottom: 1rem;
+}
+
+.add-classification-form button:hover {
+  background-color: #004c99;
+}
+
+.add-inventory-form {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.add-inventory-form h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.add-inventory-form label {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
+  font-weight: bold;
+}
+
+.add-inventory-form input,
+.add-inventory-form select,
+.add-inventory-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.add-inventory-form button {
+  padding: 0.5rem 1rem;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-inventory-form button:hover {
+  background-color: #004c99;
+}
+
+.notice {
+  background-color: #ffe5e5;
+  border: 1px solid #ff0000;
+  color: #800000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+}
