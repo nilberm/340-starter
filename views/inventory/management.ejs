@@ -1,12 +1,23 @@
 <div class="management-container">
-  <h1>Inventory Management</h1>
+  <h1 class="management-title">Inventory Management</h1>
 
   <% if (messages && messages.notice) { %>
-  <div class="notice"><%= messages.notice %></div>
+    <div class="notice"><%= messages.notice %></div>
   <% } %>
 
-  <ul>
-    <li><a href="/inv/add-classification">Add New Classification</a></li>
-    <li><a href="/inv/add-inventory">Add New Inventory</a></li>
+  <ul class="management-actions">
+    <li><a href="/inv/add-classification" class="management-link">Add New Classification</a></li>
+    <li><a href="/inv/add-inventory" class="management-link">Add New Inventory</a></li>
   </ul>
+
+  <h2 class="management-subtitle">Manage Inventory</h2>
+  <p class="management-instructions">Choose a classification to see available vehicles.</p>
+
+  <div class="classification-select"><%- classificationSelect %></div>
+
+  <table id="inventoryDisplay" class="inventory-table"></table>
+
+  <noscript class="noscript-warning">JavaScript must be enabled to use this page.</noscript>
+  
+  <script src="../../js/inventory.js"></script>
 </div>

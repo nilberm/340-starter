@@ -479,28 +479,6 @@ input:required:valid {
   border: 2px solid green;
 }
 
-.management-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-.management-container h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.management-container a {
-  display: inline-block;
-  margin: 0.5rem 0;
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.management-container a:hover {
-  text-decoration: underline;
-}
-
 .add-classification-form {
   max-width: 500px;
   margin: 2rem auto;
@@ -590,4 +568,69 @@ input:required:valid {
   padding: 1rem;
   margin-bottom: 1rem;
   list-style-type: disc;
+}
+
+.management-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.management-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.management-actions {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.management-link {
+  text-decoration: none;
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.management-link:hover {
+  text-decoration: underline;
+}
+
+.management-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.management-instructions {
+  margin-bottom: 1rem;
+}
+
+.classification-select {
+  margin-bottom: 1.5rem;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.inventory-table th {
+  background-color: #f4f4f4;
+}
+
+.noscript-warning {
+  margin-top: 1rem;
+  color: red;
+  font-weight: bold;
 }
