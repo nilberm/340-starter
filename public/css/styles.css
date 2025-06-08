@@ -634,3 +634,83 @@ input:required:valid {
   color: red;
   font-weight: bold;
 }
+
+.update-account-form,
+.change-password-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.update-account-form h2,
+.change-password-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.update-account-form label,
+.change-password-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.update-account-form input,
+.change-password-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.update-account-form button,
+.change-password-form button {
+  padding: 0.6rem 1.2rem;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.update-account-form button:hover,
+.change-password-form button:hover {
+  background-color: #004c99;
+}
+
+.update-account-form span,
+.change-password-form span {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.password-input-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.password-input-wrapper input[type="password"],
+.password-input-wrapper input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.password-input-wrapper button {
+  padding: 0.6rem 0.8rem;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  height: 100%;
+}
+
+.password-input-wrapper button:hover {
+  background-color: #004c99;
+}
