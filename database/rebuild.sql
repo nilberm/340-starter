@@ -109,3 +109,11 @@ INSERT INTO public.inventory (
 ('Jeep', 'Wrangler', '2023', 'Off-road vehicle built for adventure.',
  '/images/vehicles/wrangler.jpg', '/images/vehicles/wrangler-tn.jpg',
  46000, 1200, 'Blue', 5);
+
+
+CREATE TABLE favorites (
+  favorite_id SERIAL PRIMARY KEY,
+  account_id INT NOT NULL REFERENCES account(account_id) ON DELETE CASCADE,
+  inv_id INT NOT NULL REFERENCES inventory(inv_id) ON DELETE CASCADE,
+  UNIQUE (account_id, inv_id)
+);

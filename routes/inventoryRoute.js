@@ -8,12 +8,19 @@ const utilities = require("../utilities");
 // Public Routes
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inventoryId", invController.buildByInventoryId);
-router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
+router.get(
+  "/getInventory/:classification_id",
+  utilities.handleErrors(invController.getInventoryJSON)
+);
 
 // Protected Routes (need login)
 router.get("/", utilities.checkLogin, invController.buildManagement);
 
-router.get("/add-classification", utilities.checkLogin, invController.buildAddClassification);
+router.get(
+  "/add-classification",
+  utilities.checkLogin,
+  invController.buildAddClassification
+);
 router.post(
   "/add-classification",
   utilities.checkLogin,
@@ -22,7 +29,11 @@ router.post(
   utilities.handleErrors(invController.addClassification)
 );
 
-router.get("/add-inventory", utilities.checkLogin, invController.buildAddInventory);
+router.get(
+  "/add-inventory",
+  utilities.checkLogin,
+  invController.buildAddInventory
+);
 router.post(
   "/add-inventory",
   utilities.checkLogin,
@@ -43,6 +54,24 @@ router.post(
   invValidate.inventoryRules(),
   invValidate.checkUpdateData,
   utilities.handleErrors(invController.updateInventory)
+);
+
+router.post(
+  "/add-favorite",
+  utilities.checkLogin,
+  utilities.handleErrors(invController.addFavorite)
+);
+
+router.post(
+  "/remove-favorite",
+  utilities.checkLogin,
+  utilities.handleErrors(invController.removeFavorite)
+);
+
+router.get(
+  "/favorites",
+  utilities.checkLogin,
+  utilities.handleErrors(invController.buildFavoritesView)
 );
 
 module.exports = router;

@@ -714,3 +714,36 @@ input:required:valid {
 .password-input-wrapper button:hover {
   background-color: #004c99;
 }
+
+.favorite-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-btn {
+  padding: 8px 16px;
+  min-width: 180px;
+
+  border: 2px solid #3a3a3a;
+          
+  border-radius: 25px;
+
+  background-color: #ffffff;
+  color: #3a3a3a;
+  
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background-color: #3a3a3a; 
+  color: #ffffff;
+}
+.favorite-btn:active {
+  transform: scale(0.98);
+}

@@ -22,7 +22,13 @@ invCont.buildByClassificationId = async function (req, res, next) {
       });
     }
 
-    const grid = await utilities.buildClassificationGrid(data);
+    let userFavorites = [];
+    if (res.locals.loggedin) {
+      const account_id = res.locals.accountData.account_id;
+      userFavorites = await invModel.getFavoritesByAccount(account_id);
+    }
+
+    const grid = await utilities.buildClassificationGrid(data, userFavorites);
     const className = data[0].classification_name;
 
     res.render("./inventory/classification", {
@@ -39,25 +45,35 @@ invCont.buildByInventoryId = async function (req, res, next) {
   try {
     const inventoryId = req.params.inventoryId;
     const data = await invModel.getInventoryById(inventoryId);
+    const nav = await utilities.getNav();
 
     if (!data) {
-      throw new Error("Vehicle not found");
+      const err = new Error("Vehicle not found");
+      err.status = 404;
+      return next(err);
     }
 
-    const detail = await utilities.buildInventoryDetail(data);
-    let nav = await utilities.getNav();
+    let isFavorite = false;
+    if (res.locals.loggedin) {
+      const account_id = res.locals.accountData.account_id;
+      const favorites = await invModel.getFavoritesByAccount(account_id);
+      isFavorite = favorites.some((v) => Number(v.inv_id) === Number(inventoryId));
+    }
 
-    console.log(data);
+    const detail = utilities.buildInventoryDetail(data, isFavorite);
 
     res.render("inventory/detail", {
       title: `${data.inv_make} ${data.inv_model}`,
       nav,
       detail,
+      isFavorite,
+      inv_id: inventoryId,
     });
   } catch (error) {
     next(error);
   }
 };
+
 
 invCont.buildManagement = async function (req, res, next) {
   let nav = await utilities.getNav();
@@ -69,6 +85,7 @@ invCont.buildManagement = async function (req, res, next) {
     errors: null,
   });
 };
+
 invCont.buildAddClassification = async function (req, res, next) {
   let nav = await utilities.getNav();
   res.render("inventory/add-classification", {
@@ -241,6 +258,72 @@ invCont.updateInventory = async function (req, res, next) {
       inv_color,
       classification_id,
     });
+  }
+};
+
+/* ***************************
+ *  Add vehicle to favorites
+ * ************************** */
+invCont.addFavorite = async function (req, res, next) {
+  try {
+    const account_id = res.locals.accountData.account_id;
+    const inv_id = parseInt(req.body.inv_id);
+    const result = await invModel.addFavorite(account_id, inv_id);
+
+    if (result) {
+      req.flash("notice", "Vehicle added to favorites.");
+    } else {
+      req.flash("error", "Sorry, the vehicle could not be added to favorites.");
+    }
+
+    res.redirect("back");
+  } catch (error) {
+    next(error);
+  }
+};
+
+/* ***************************
+ *  Remove vehicle from favorites
+ * ************************** */
+invCont.removeFavorite = async function (req, res, next) {
+  try {
+    const account_id = res.locals.accountData.account_id;
+    const inv_id = parseInt(req.body.inv_id);
+    const result = await invModel.removeFavorite(account_id, inv_id);
+
+    if (result) {
+      req.flash("notice", "Vehicle removed from favorites.");
+    } else {
+      req.flash(
+        "error",
+        "Sorry, the vehicle could not be removed from favorites."
+      );
+    }
+
+    res.redirect("back");
+  } catch (error) {
+    next(error);
+  }
+};
+
+/* ***************************
+ *  Build Favorites View
+ * ************************** */
+invCont.buildFavoritesView = async function (req, res, next) {
+  try {
+    const account_id = res.locals.accountData.account_id;
+    const favorites = await invModel.getFavoritesByAccount(account_id);
+    let nav = await utilities.getNav();
+
+    const grid = await utilities.buildClassificationGrid(favorites, favorites);
+
+    res.render("./inventory/favorites", {
+      title: "My Favorite Vehicles",
+      nav,
+      grid,
+    });
+  } catch (error) {
+    next(error);
   }
 };
 

@@ -1,0 +1,9 @@
+<section class="favorites">
+  <h1><%= title %></h1>
+
+  <% if (messages && messages.notice) { %>
+  <div class="notice"><%= messages.notice %></div>
+  <% } %> <% if (grid && grid.length > 0) { %> <%- grid %> <% } else { %>
+  <p>You haven't added any favorite vehicles yet.</p>
+  <% } %>
+</section>
